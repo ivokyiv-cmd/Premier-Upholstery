@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.premierleatherupholstery.com
+
+# Sitemaps
+Sitemap: https://www.premierleatherupholstery.com/sitemap.xml
