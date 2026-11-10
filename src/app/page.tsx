@@ -14,6 +14,9 @@ import { BeforeAfterSlider } from '@/components/shared/BeforeAfterSlider'
 import { Badge } from '@/components/ui/Badge'
 import { CONTACT } from '@/lib/contact'
 
+// Re-generate daily so Google reviews stay fresh
+export const revalidate = 86400
+
 export const metadata: Metadata = {
   title: 'Leather, Upholstery & Furniture Restoration in Philadelphia & Bucks County',
   description:
@@ -28,72 +31,79 @@ export const metadata: Metadata = {
 }
 
 /* ── Featured portfolio projects ─────────────────────────────────────────── */
-const portfolio = [
+const portfolio: Array<{
+  id: string
+  title: string
+  location?: string
+  serviceLabel: string
+  serviceSlug: string
+  before: { src: string; alt: string }
+  after: { src: string; alt: string }
+  description: string
+}> = [
   {
-    id: 'burgundy-recliner',
-    title: 'Leather Chair — Complete Restoration & Color Transformation',
-    location: 'Bucks County, PA',
-    serviceLabel: 'Recliner Repair',
-    serviceSlug: 'recliner-repair',
-    before: {
-      src: '/images/projects/recliner/damaged-gray-leather-recliner-before.jpg',
-      alt: 'Heavily damaged gray leather recliner before restoration',
-    },
-    after: {
-      src: '/images/projects/recliner/burgundy-leather-recliner-restored-after.jpg',
-      alt: 'Burgundy leather recliner after complete restoration in Bucks County PA',
-    },
-    description:
-      'Severely damaged recliner with structural wear and failed repairs. Completely restored and recolored from gray to rich burgundy — one of the most dramatic transformations in our portfolio.',
-  },
-  {
-    id: 'boat-interior',
-    title: 'Performance Boat — Custom Marine Interior',
-    serviceLabel: 'Boat Upholstery',
-    serviceSlug: 'boat-upholstery',
-    before: {
-      src: '/images/projects/boat/performance-boat-original-marine-interior-before.jpg',
-      alt: 'Performance boat original marine interior before custom upholstery',
-    },
-    after: {
-      src: '/images/projects/boat/performance-boat-custom-diamond-stitch-marine-interior-after.jpg',
-      alt: 'Performance boat after custom diamond stitch marine upholstery in tan, cream, and blue',
-    },
-    description:
-      'Full custom marine interior — tan and cream diamond stitch with bold blue accents. Marine-grade UV-resistant materials throughout.',
-  },
-  {
-    id: 'chesterfield-sofa',
-    title: 'Ornate Tufted Sofa — Deep Leather Restoration',
+    id: 'brown-leather-sofa',
+    title: 'Brown Leather Sofa — Worn Finish Restoration',
     serviceLabel: 'Leather Furniture Restoration',
     serviceSlug: 'leather-restoration',
     before: {
-      src: '/images/projects/furniture/ornate-chesterfield-tufted-sofa-before.jpg',
-      alt: 'Ornate Chesterfield sofa before leather restoration — worn dark leather',
+      src: '/images/projects/furniture/brown-leather-sofa-faded-closeup-before.jpg',
+      alt: 'Brown leather sofa before restoration — worn, faded finish on cushions',
     },
     after: {
-      src: '/images/projects/furniture/ornate-chesterfield-tufted-sofa-after.jpg',
-      alt: 'Ornate Chesterfield sofa after professional leather restoration — deep chocolate',
+      src: '/images/projects/furniture/brown-leather-sofa-color-restored-after.jpg',
+      alt: 'Brown leather sofa after professional color restoration — rich even brown',
     },
     description:
-      'Full leather restoration on an ornate carved tufted sofa. Deep chocolate color restored in every tufted fold and across seat cushions.',
+      'The finish had worn through across the seats and back cushions. Restored to a rich, even brown that looks like the day it was delivered — at a fraction of the cost of replacement.',
   },
   {
-    id: 'foam-sectional',
-    title: 'Large Leather Sectional — Foam Replacement',
-    location: 'Philadelphia, PA',
-    serviceLabel: 'Cushion Refilling',
-    serviceSlug: 'cushion-refilling-foam-replacement',
+    id: 'red-leather-tufted-armchair',
+    title: 'Red Tufted Armchair — Tear Repair & Color Restoration',
+    serviceLabel: 'Leather Furniture Restoration',
+    serviceSlug: 'leather-restoration',
     before: {
-      src: '/images/projects/cushion/large-caramel-leather-sectional-cushion-collapse-before.jpg',
-      alt: 'Large leather sectional before cushion refilling — collapsed and sagging cushions',
+      src: '/images/projects/furniture/red-leather-tufted-armchair-before.jpg',
+      alt: 'Red tufted leather armchair before restoration — worn color, creased back and torn arm',
     },
     after: {
-      src: '/images/projects/cushion/large-caramel-leather-sectional-cushion-restored-after.jpg',
-      alt: 'Large leather sectional after foam replacement and cushion refilling',
+      src: '/images/projects/furniture/red-leather-tufted-armchair-restored-after.jpg',
+      alt: 'Red tufted leather armchair after professional repair and color restoration',
     },
     description:
-      'Complete foam breakdown in every seat cushion. Full foam core replacement throughout — shape, support, and comfort fully restored.',
+      'Torn arm, deep creasing on the tufted back and a tired finish. Tear repaired, creases treated and a vibrant, uniform red restored across the whole chair.',
+  },
+  {
+    id: 'toyota-sequoia-driver-seat',
+    title: 'Toyota Sequoia — Driver Seat Restoration',
+    serviceLabel: 'Auto Interior Repair',
+    serviceSlug: 'auto-interior-repair',
+    before: {
+      src: '/images/projects/auto/toyota-sequoia-tan-leather-seat-cracked-before.jpg',
+      alt: 'Toyota Sequoia tan leather driver seat before repair — cracked, worn seat cushion',
+    },
+    after: {
+      src: '/images/projects/auto/toyota-sequoia-tan-leather-seat-restored-after.jpg',
+      alt: 'Toyota Sequoia tan leather driver seat after professional repair and color matching',
+    },
+    description:
+      'Heavily cracked driver seat cushion from daily entry and exit. Leather repaired and matched to the factory tan color — no seat cover replacement needed.',
+  },
+  {
+    id: 'tan-leather-sofa',
+    title: 'Tan Leather Sofa — Color Restoration',
+    serviceLabel: 'Leather Furniture Restoration',
+    serviceSlug: 'leather-restoration',
+    before: {
+      src: '/images/projects/furniture/tan-leather-sofa-faded-before.jpg',
+      alt: 'Tan leather sofa before restoration — faded, uneven color on seat cushions',
+    },
+    after: {
+      src: '/images/projects/furniture/tan-leather-sofa-restored-after.jpg',
+      alt: 'Tan leather sofa after professional leather color restoration',
+    },
+    description:
+      'Sun-faded, patchy seat cushions on a modern tan sofa. Cleaned, prepared and restored to an even tan color across every cushion, arm and back.',
   },
 ]
 

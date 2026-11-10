@@ -110,6 +110,142 @@ export const services: Service[] = [
     relatedServices: ['recliner-repair', 'cushion-refilling-foam-replacement', 'commercial-upholstery'],
     projects: [
       {
+        id: 'red-leather-tufted-armchair',
+        title: 'Red Tufted Leather Armchair — Tear Repair & Color Restoration',
+        before: {
+          src: '/images/projects/furniture/red-leather-tufted-armchair-before.jpg',
+          alt: 'Red tufted leather armchair before restoration — worn color, creased back and torn arm',
+          caption: 'Worn finish, creased tufted back and a tear on the arm',
+        },
+        after: {
+          src: '/images/projects/furniture/red-leather-tufted-armchair-restored-after.jpg',
+          alt: 'Red tufted leather armchair after professional repair and color restoration',
+          caption: 'Even, vibrant red finish with the arm tear repaired',
+        },
+        description:
+          'This classic tufted armchair had a tear on the front of the arm, deep creasing across the tufted back, and a tired, uneven red finish. We repaired the tear, treated the creased areas, and restored a uniform vibrant red across the whole chair.',
+        servicesPerformed: ['Arm tear repair', 'Crease and wear treatment on tufted back', 'Red color restoration', 'Protective finish'],
+      },
+      {
+        id: 'red-leather-armchair-back-detail',
+        title: 'Tufted Back Detail — Crease & Wear Correction',
+        before: {
+          src: '/images/projects/furniture/red-leather-armchair-back-crease-before.jpg',
+          alt: 'Close-up of red tufted leather chair back with deep creases and worn color before repair',
+          caption: 'Deep creases and worn color on the tufted back',
+        },
+        after: {
+          src: '/images/projects/furniture/red-leather-armchair-back-restored-after.jpg',
+          alt: 'Close-up of red tufted leather chair back after crease correction and color restoration',
+          caption: 'Smooth, uniform finish around every tuft',
+        },
+        description:
+          'A close look at the tufted back of the same armchair. Creases and worn spots around the buttons were treated and refinished so the color is consistent in every fold.',
+        servicesPerformed: ['Crease treatment', 'Detail color work around tufting', 'Protective finish'],
+      },
+      {
+        id: 'tan-leather-sofa',
+        title: 'Tan Leather Sofa — Color Restoration',
+        before: {
+          src: '/images/projects/furniture/tan-leather-sofa-faded-before.jpg',
+          alt: 'Tan leather sofa before restoration — faded, uneven color on seat cushions',
+          caption: 'Faded, uneven color on seats and back cushions',
+        },
+        after: {
+          src: '/images/projects/furniture/tan-leather-sofa-restored-after.jpg',
+          alt: 'Tan leather sofa after professional leather color restoration',
+          caption: 'Even tan color restored across the whole sofa',
+        },
+        description:
+          'Sun exposure and daily use left this tan sofa with faded, patchy seat cushions. We cleaned and prepared the leather, then restored an even tan color across all cushions, arms and back.',
+        servicesPerformed: ['Leather cleaning and preparation', 'Tan color restoration', 'Protective finish'],
+      },
+      {
+        id: 'brown-leather-sofa',
+        title: 'Brown Leather Sofa — Worn Finish Restoration',
+        before: {
+          src: '/images/projects/furniture/brown-leather-sofa-faded-closeup-before.jpg',
+          alt: 'Brown leather sofa before restoration — worn, faded finish on cushions',
+          caption: 'Worn, faded finish on seat and back cushions',
+        },
+        after: {
+          src: '/images/projects/furniture/brown-leather-sofa-color-restored-after.jpg',
+          alt: 'Brown leather sofa after professional color restoration — rich even brown',
+          caption: 'Rich, even brown color restored',
+        },
+        description:
+          'The finish on this brown leather sofa had worn through on the seats and back cushions. We restored a rich, even brown tone that matches the rest of the piece and protected it for daily use.',
+        servicesPerformed: ['Leather preparation', 'Brown color restoration', 'Protective finish'],
+      },
+      {
+        id: 'brown-leather-loveseat',
+        title: 'Brown Leather Loveseat — Worn Seat Restoration',
+        before: {
+          src: '/images/projects/furniture/brown-leather-loveseat-before.jpg',
+          alt: 'Close-up of dark brown leather loveseat seat cushion worn to a light, cracked surface before restoration',
+          caption: 'Seat cushion worn down to a light, cracked surface',
+        },
+        after: {
+          src: '/images/projects/furniture/brown-leather-loveseat-restored-after.jpg',
+          alt: 'Dark brown leather loveseat after seat cushion color restoration',
+          caption: 'Seats matched back to the original dark brown',
+        },
+        description:
+          'Years of use wore the seat cushions of this loveseat down to a light, cracked surface while the rest stayed dark brown. We repaired the surface wear and color-matched the seats back to the original tone.',
+        servicesPerformed: ['Surface wear repair', 'Dark brown color matching', 'Protective finish'],
+      },
+      {
+        id: 'caramel-leather-sofa',
+        title: 'Caramel Leather Sofa — Wear & Color Restoration',
+        before: {
+          src: '/images/projects/furniture/caramel-leather-sofa-worn-cushion-before.jpg',
+          alt: 'Caramel leather sofa before restoration — worn seat cushion and discolored areas',
+          caption: 'Worn, discolored seat and arm areas',
+        },
+        after: {
+          src: '/images/projects/furniture/caramel-leather-sofa-restored-after.jpg',
+          alt: 'Caramel leather sofa after professional leather restoration',
+          caption: 'Uniform caramel color across the full sofa',
+        },
+        description:
+          'This caramel leather sofa had worn and discolored areas on the seats and arms. We treated the worn spots and restored a uniform caramel color across the entire piece.',
+        servicesPerformed: ['Wear repair on seats and arms', 'Caramel color restoration', 'Protective finish'],
+      },
+      {
+        id: 'black-leather-sofa-tear',
+        title: 'Black Leather Sofa — Back Tear Repair',
+        before: {
+          src: '/images/projects/furniture/black-leather-sofa-back-tear-before.jpg',
+          alt: 'Black leather sofa with a tear and scuffs on the back cushion before repair',
+          caption: 'Tear and scuffing on the back cushion',
+        },
+        after: {
+          src: '/images/projects/furniture/black-leather-sofa-back-tear-repaired-after.jpg',
+          alt: 'Black leather sofa after professional tear repair and color blending',
+          caption: 'Tear repaired and blended into the surrounding leather',
+        },
+        description:
+          'A tear and scuffs on the back cushion of this black leather sofa were repaired, filled and color-blended so the damaged area matches the surrounding leather.',
+        servicesPerformed: ['Tear repair', 'Scuff correction', 'Black color blending', 'Protective finish'],
+      },
+      {
+        id: 'gray-leather-pillow',
+        title: 'Gray Leather Pillow — Damaged Panel Replacement & Re-Sewing',
+        before: {
+          src: '/images/projects/furniture/gray-leather-pillow-peeling-before.jpg',
+          alt: 'Gray leather pillow with peeling, damaged leather panel before repair',
+          caption: 'Peeling, badly damaged leather section',
+        },
+        after: {
+          src: '/images/projects/furniture/gray-leather-pillow-restored-after.jpg',
+          alt: 'Gray leather pillow after damaged sections were replaced with new material and re-sewn',
+          caption: 'Damaged sections replaced with new material and re-sewn',
+        },
+        description:
+          'The leather on part of this pillow was peeling beyond surface repair. Instead of replacing the whole piece, we cut out the damaged sections, sewed in new material and finished the seams cleanly.',
+        servicesPerformed: ['Removal of damaged sections', 'New material panels', 'Re-sewing and seam finishing'],
+      },
+      {
         id: 'terra-cotta-leather-sectional',
         title: 'Leather Sectional — Color Restoration',
         location: 'Bucks County, PA',
@@ -472,8 +608,8 @@ export const services: Service[] = [
     title: 'Auto Interior Repair',
     tier: 'primary',
     icon: 'Car',
-    cardImage: '/images/projects/auto/classic-car-leather-seat-seam-repaired-after.jpg',
-    heroImage: '/images/projects/auto/classic-car-leather-seat-seam-repaired-after.jpg',
+    cardImage: '/images/projects/auto/toyota-sequoia-tan-leather-seat-restored-after.jpg',
+    heroImage: '/images/projects/auto/toyota-sequoia-tan-leather-seat-restored-after.jpg',
     shortDescription:
       'Leather and vinyl auto interior repair — seat bolster repair, color matching, crack repair, seam repair, and wear correction for cars in Philadelphia and Bucks County.',
     metaTitle: 'Auto Interior Leather Repair in Philadelphia & Bucks County | Premier Leather & Upholstery',
@@ -524,6 +660,40 @@ export const services: Service[] = [
     ],
     relatedServices: ['leather-restoration', 'boat-upholstery', 'rv-interior-restoration'],
     projects: [
+      {
+        id: 'toyota-sequoia-driver-seat',
+        title: 'Toyota Sequoia — Tan Leather Driver Seat Restoration',
+        before: {
+          src: '/images/projects/auto/toyota-sequoia-tan-leather-seat-cracked-before.jpg',
+          alt: 'Toyota Sequoia tan leather driver seat before repair — cracked, worn seat cushion',
+          caption: 'Cracked, worn leather on the seat cushion',
+        },
+        after: {
+          src: '/images/projects/auto/toyota-sequoia-tan-leather-seat-restored-after.jpg',
+          alt: 'Toyota Sequoia tan leather driver seat after professional repair and color matching',
+          caption: 'Smooth seat surface with factory-matched tan color',
+        },
+        description:
+          'The driver seat cushion in this Toyota Sequoia was heavily cracked and worn from daily entry and exit. We repaired the damaged leather and matched the original tan color for a clean, factory-like finish.',
+        servicesPerformed: ['Crack and wear repair', 'Factory tan color matching', 'Protective finish'],
+      },
+      {
+        id: 'mercedes-driver-seat',
+        title: 'Mercedes — Black Leather Driver Seat Repair',
+        before: {
+          src: '/images/projects/auto/mercedes-black-leather-driver-seat-wear-before.jpg',
+          alt: 'Mercedes black leather driver seat before repair — creases and wear on seat cushion',
+          caption: 'Creasing, cracks and wear on the seat cushion',
+        },
+        after: {
+          src: '/images/projects/auto/mercedes-black-leather-driver-seat-restored-after.jpg',
+          alt: 'Mercedes black leather driver seat after professional leather repair',
+          caption: 'Even black finish restored',
+        },
+        description:
+          'This Mercedes driver seat showed creasing and wear on the seat cushion and bolster. We repaired the worn areas and refinished the leather in matching black.',
+        servicesPerformed: ['Seat cushion wear repair', 'Bolster treatment', 'Black color matching', 'Protective finish'],
+      },
       {
         id: 'classic-car-seat-seam-repair',
         title: 'Classic Car Leather Seat — Seam Repair & Restoration',

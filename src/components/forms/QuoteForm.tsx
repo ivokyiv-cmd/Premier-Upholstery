@@ -5,6 +5,9 @@ import { useForm } from 'react-hook-form'
 import { CheckCircle, Loader2 } from 'lucide-react'
 import { PhotoUpload } from './PhotoUpload'
 import { cn } from '@/lib/cn'
+import { compressImage } from '@/lib/compressImage'
+
+const MAX_UPLOAD_BYTES = 3.8 * 1024 * 1024
 
 const serviceOptions = [
   'Furniture Restoration',
@@ -29,6 +32,7 @@ interface FormValues {
   serviceType: string
   description: string
   preferredContact: 'text' | 'email' | 'phone'
+  company?: string
 }
 
 const inputClasses =
@@ -54,17 +58,27 @@ export function QuoteForm() {
 
     try {
       const formData = new FormData()
-      Object.entries(data).forEach(([k, v]) => formData.append(k, v))
-      photos.forEach((photo) => formData.append('photos', photo))
+      Object.entries(data).forEach(([k, v]) => formData.append(k, v ?? ''))
 
-      // Submit to Formspree (replace YOUR_FORM_ID with actual Formspree endpoint)
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' },
-      })
+      // Compress photos so the whole request stays under the server upload limit (~4 MB)
+      const compressed = await Promise.all(photos.map((p) => compressImage(p)))
+      let total = 0
+      let skipped = 0
+      for (const photo of compressed) {
+        if (total + photo.size > MAX_UPLOAD_BYTES) {
+          skipped++
+          continue
+        }
+        total += photo.size
+        formData.append('photos', photo)
+      }
+
+      const res = await fetch('/api/quote', { method: 'POST', body: formData })
 
       if (res.ok) {
+        if (skipped > 0) {
+          console.warn(`${skipped} photo(s) were too large to attach`)
+        }
         setSubmitted(true)
       } else {
         setSubmitError('There was an issue submitting your request. Please try again or text us directly.')
@@ -93,6 +107,14 @@ export function QuoteForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      {/* Honeypot — hidden from people, bots fill it in */}
+      <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
+        <label>
+          Company
+          <input {...register('company')} type="text" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       {/* Name */}
       <div>
         <label className={labelClasses}>Name <span className="text-red-500">*</span></label>
