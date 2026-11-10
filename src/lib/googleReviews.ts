@@ -1,10 +1,10 @@
 // Fetches reviews from Google Places API (New).
 // Env vars (server-side only, set them in hosting settings):
 //   GOOGLE_PLACES_API_KEY  — required
-//   GOOGLE_PLACE_ID        — optional; if missing, the place is looked up by name
+//   GOOGLE_PLACE_ID        — required; exact Place ID (ChIJ...) of the business.
+//   No name search on purpose: it matched a different business with a similar name.
 // Results are cached and refreshed once a day.
 
-const BUSINESS_QUERY = 'Premier Leather & Upholstery INC'
 const REVALIDATE_SECONDS = 60 * 60 * 24
 
 export interface GoogleReview {
@@ -24,30 +24,12 @@ export interface GoogleReviewsData {
   reviews: GoogleReview[]
 }
 
-async function findPlaceId(apiKey: string): Promise<string | null> {
-  const res = await fetch('https://places.googleapis.com/v1/places:searchText', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Goog-Api-Key': apiKey,
-      'X-Goog-FieldMask': 'places.id',
-    },
-    body: JSON.stringify({ textQuery: BUSINESS_QUERY }),
-    next: { revalidate: REVALIDATE_SECONDS * 7 },
-  })
-  if (!res.ok) return null
-  const json = await res.json()
-  return json.places?.[0]?.id ?? null
-}
-
 export async function getGoogleReviews(): Promise<GoogleReviewsData | null> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY
-  if (!apiKey) return null
+  const placeId = process.env.GOOGLE_PLACE_ID
+  if (!apiKey || !placeId) return null
 
   try {
-    const placeId = process.env.GOOGLE_PLACE_ID || (await findPlaceId(apiKey))
-    if (!placeId) return null
-
     const res = await fetch(`https://places.googleapis.com/v1/places/${placeId}?languageCode=en`, {
       headers: {
         'X-Goog-Api-Key': apiKey,
